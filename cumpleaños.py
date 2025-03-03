@@ -63,9 +63,9 @@ if choice == "Inicio":
     
     # Mostrar la imagen centrada
     # Mostrar imagen decorativa centrada
-    col1, col2, col3 = st.columns([1, 3, 1])  
+    col1, col2, col3 = st.columns([1, 6, 1])  
     with col2:
-        st.image("primera.jpg", width=900, caption="🎂 ¡Disfruta tu día especial!")
+        st.image("primera.jpg", width=800, caption="🎂 ¡Disfruta tu día especial!")
     
     # Animaciones
     st.balloons()
