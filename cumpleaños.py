@@ -240,7 +240,7 @@ elif choice == "Recordatorio":
     if st.session_state.mensaje_guardado:
         col2.write(st.session_state.mensaje_guardado)
     if st.session_state.foto_guardada:
-        col2.image(st.session_state.foto_guardada, caption="Recuerdo Especial", width=800)
+        col2.image(st.session_state.foto_guardada, caption="Recuerdo Especial", width=760)
 
 
 
