@@ -223,14 +223,21 @@ elif choice == "Carta de Cumpleaños":
 
 elif choice == "Recordatorio":
     col1, col2, col3 = st.columns([1, 6, 1])
-    mensaje = st.text_area("💖 Escribe un mensaje especial")
-    foto = st.file_uploader("📷 Sube una foto de ustedes juntos:", type=["jpg", "png", "jpeg"])
+    mensaje = col2.text_area("💖 Escribe un mensaje especial")
+    foto = col2.file_uploader("📷 Sube una foto de ustedes juntos:", type=["jpg", "png", "jpeg"])
+    
+    # Función para guardar los datos en caché
+    @st.cache(allow_output_mutation=True)
+    def guardar_recordatorio(mensaje, foto):
+        return mensaje, foto
+    
     if st.button("Guardar Recordatorio"):
         st.success("Mensaje y foto guardados con amor 💖")
-        if foto:
-            st.image(foto, caption="Recuerdo Especial", width=1000)
-        st.write(mensaje)
-
+        mensaje_guardado, foto_guardada = guardar_recordatorio(mensaje, foto)
+        
+    if mensaje_guardado:
+        st.image(foto_guardada, caption="Recuerdo Especial", width=100)
+        st.write(mensaje_guardado)
 
 
 
