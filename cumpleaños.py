@@ -64,7 +64,10 @@ if choice == "Inicio":
     """, unsafe_allow_html=True)
     
     # Mostrar la imagen centrada
-    st.image("primera.jpg", use_column_width=True, caption="🎂 ¡Disfruta tu día especial!")
+    # Mostrar imagen decorativa centrada
+    col1, col2, col3 = st.columns([1, 6, 1])  
+    with col2:
+        st.image("primera.jpg", width=1340, caption="🎂 ¡Disfruta tu día especial!")
     
     # Animaciones
     st.balloons()
@@ -121,9 +124,9 @@ elif choice == "Carta de Cumpleaños":
     st.markdown("<br><br>", unsafe_allow_html=True)
 
     # Mostrar imagen decorativa centrada
-    col1, col2, col3 = st.columns([1, 3, 1])  
+    col1, col2, col3 = st.columns([1, 6, 1])  
     with col2:
-        st.image("image1.jpeg", use_column_width=True)
+        st.image("image1.jpeg", width=1340)
 
     st.markdown("""
     <style>
@@ -166,9 +169,9 @@ elif choice == "Carta de Cumpleaños":
     st.markdown("<br><br>", unsafe_allow_html=True)
 
     # Mostrar imagen decorativa centrada
-    col1, col2, col3 = st.columns([1, 3, 1])  
+    col1, col2, col3 = st.columns([1, 6, 1])  
     with col2:
-        st.image("image3.jpeg", use_column_width=True)
+        st.image("image3.jpeg", width=1340)
     
     st.markdown("""
     <style>
@@ -221,12 +224,13 @@ elif choice == "Carta de Cumpleaños":
 
 
 elif choice == "Recordatorio":
+    col1, col2, col3 = st.columns([1, 6, 1])
     mensaje = st.text_area("💖 Escribe un mensaje especial")
     foto = st.file_uploader("📷 Sube una foto de ustedes juntos:", type=["jpg", "png", "jpeg"])
     if st.button("Guardar Recordatorio"):
         st.success("Mensaje y foto guardados con amor 💖")
         if foto:
-            st.image(foto, caption="Recuerdo Especial", use_column_width=True)
+            st.image(foto, caption="Recuerdo Especial", width=1340)
         st.write(mensaje)
 
 
@@ -282,32 +286,30 @@ if choice == "Playlist":
 
 
 elif choice == "Sorpresa":
-    st.markdown("""
-    <div style='text-align: center;'>
-        <h2>🎂 Sorpresa</h2>
-        <p>¡Aquí tienes una torta especial para soplar! 🎂</p>
-    </div>
-    """, unsafe_allow_html=True)
+    col1, col2, col3 = st.columns([1, 6, 1])  
 
-    st.image(
-        "https://www.ferrerorocher.com/es/sites/ferrerorocher20_es/files/2021-05/birthday-cake_0.jpeg?t=1739459814",
-        caption="Haz un deseo y sopla las velas 🎂",
-        use_column_width=True
-    )
-
-    if st.button("🎂 Soplar la vela"):
-        st.balloons()
+    with col2:  # Centra el contenido en la columna del medio
         st.markdown("""
-        <div style='text-align: center; animation: fadeIn 2s;'>
-            <h1 style='font-size: 80px; color: #000000;'>🎉 ¡Feliz Cumpleaños mi niño hermoso! 🎉</h1>
+        <div style='text-align: center;'>
+            <h2>🎂 Sorpresa</h2>
+            <p>¡Aquí tienes una torta especial para soplar! 🎂</p>
         </div>
-        <style>
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-        </style>
         """, unsafe_allow_html=True)
+
+        st.image(
+            "https://www.ferrerorocher.com/es/sites/ferrerorocher20_es/files/2021-05/birthday-cake_0.jpeg?t=1739459814",
+            caption="Haz un deseo y sopla las velas 🎂",
+            width=1340  # Ajusta el tamaño para que no se vea demasiado grande
+        )
+
+        if st.button("🎂 Soplar la vela"):
+            st.balloons()
+            st.markdown("""
+            <div style='text-align: center;'>
+                <h1 style='font-size: 80px; color: #000000;'>🎉 ¡Feliz Cumpleaños mi niño hermoso! 🎉</h1>
+            </div>
+            """, unsafe_allow_html=True)
 
 # Efecto de nieve
 st.snow()
+
