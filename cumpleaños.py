@@ -65,7 +65,7 @@ if choice == "Inicio":
     # Mostrar imagen decorativa centrada
     col1, col2, col3 = st.columns([1, 6, 1])  
     with col2:
-        st.image("primera.jpg", width=800, caption="🎂 ¡Disfruta tu día especial!")
+        st.image("primera.jpg", width=700, caption="🎂 ¡Disfruta tu día especial!")
     
     # Animaciones
     st.balloons()
@@ -284,7 +284,7 @@ if choice == "Playlist":
 
 
 elif choice == "Sorpresa":
-    col1, col2, col3 = st.columns([1, 3, 1])  
+    col1, col2, col3 = st.columns([1, 6, 1])  
 
     with col2:  # Centra el contenido en la columna del medio
         st.markdown("""
@@ -297,7 +297,7 @@ elif choice == "Sorpresa":
         st.image(
             "https://www.ferrerorocher.com/es/sites/ferrerorocher20_es/files/2021-05/birthday-cake_0.jpeg?t=1739459814",
             caption="Haz un deseo y sopla las velas 🎂",
-            width=900  # Ajusta el tamaño para que no se vea demasiado grande
+            width=700  # Ajusta el tamaño para que no se vea demasiado grande
         )
 
         if st.button("🎂 Soplar la vela"):
