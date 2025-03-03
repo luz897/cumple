@@ -228,7 +228,7 @@ elif choice == "Recordatorio":
     if st.button("Guardar Recordatorio"):
         st.success("Mensaje y foto guardados con amor 💖")
         if foto:
-            st.image(foto, caption="Recuerdo Especial", width=775)
+            st.image(foto, caption="Recuerdo Especial", width=1000)
         st.write(mensaje)
 
 
