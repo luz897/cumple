@@ -221,23 +221,31 @@ elif choice == "Carta de Cumpleaños":
 
 
 
+import streamlit as st
+
+# Inicializar variables en session_state si no existen
+if "mensaje_guardado" not in st.session_state:
+    st.session_state.mensaje_guardado = ""
+if "foto_guardada" not in st.session_state:
+    st.session_state.foto_guardada = None
+
 elif choice == "Recordatorio":
     col1, col2, col3 = st.columns([1, 6, 1])
-    mensaje = col2.text_area("💖 Escribe un mensaje especial")
+    
+    mensaje = col2.text_area("💖 Escribe un mensaje especial", value=st.session_state.mensaje_guardado)
     foto = col2.file_uploader("📷 Sube una foto de ustedes juntos:", type=["jpg", "png", "jpeg"])
     
-    # Función para guardar los datos en caché
-    @st.cache(allow_output_mutation=True)
-    def guardar_recordatorio(mensaje, foto):
-        return mensaje, foto
-    
-    if st.button("Guardar Recordatorio"):
+    if col2.button("Guardar Recordatorio"):
+        st.session_state.mensaje_guardado = mensaje
+        if foto is not None:
+            st.session_state.foto_guardada = foto
         st.success("Mensaje y foto guardados con amor 💖")
-        mensaje_guardado, foto_guardada = guardar_recordatorio(mensaje, foto)
-        
-    if mensaje_guardado:
-        st.image(foto_guardada, caption="Recuerdo Especial", width=100)
-        st.write(mensaje_guardado)
+
+    # Mostrar mensaje y foto guardados
+    if st.session_state.mensaje_guardado:
+        col2.write(st.session_state.mensaje_guardado)
+    if st.session_state.foto_guardada:
+        col2.image(st.session_state.foto_guardada, caption="Recuerdo Especial", width=1000)
 
 
 
