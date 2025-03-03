@@ -1,6 +1,4 @@
 import streamlit as st
-import time
-import random
 
 # Configurar la página
 st.set_page_config(page_title="Happy Birthday", page_icon="🎂", layout="wide")
