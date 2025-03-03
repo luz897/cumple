@@ -218,11 +218,6 @@ elif choice == "Carta de Cumpleaños":
     with col2:
      st.video("video.mp4")
 
-
-
-
-import streamlit as st
-
 # Inicializar variables en session_state si no existen
 if "mensaje_guardado" not in st.session_state:
     st.session_state.mensaje_guardado = ""
@@ -245,7 +240,7 @@ elif choice == "Recordatorio":
     if st.session_state.mensaje_guardado:
         col2.write(st.session_state.mensaje_guardado)
     if st.session_state.foto_guardada:
-        col2.image(st.session_state.foto_guardada, caption="Recuerdo Especial", width=1000)
+        col2.image(st.session_state.foto_guardada, caption="Recuerdo Especial", width=700)
 
 
 
